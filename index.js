@@ -18,10 +18,11 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
     const client = await pool.connect();
 
     client.release();
+    res.send("Works");
     
   } catch (err) {
     console.error(err);
     res.send("Error" + err);
   }
 })
-.listen(PORT, () => console.log('listening on ${ PORT }'));
+.listen(PORT, () => console.log(`listening on ${ PORT }`));
