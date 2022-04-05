@@ -2,7 +2,7 @@
 const express = require('express');
 const req = require('express/lib/request');
 const path = require('path');
-const PORT = process.env.PORT || 5432; 
+const PORT = process.env.PORT || 5000; 
 const { Pool } = require('pg');
 
 
