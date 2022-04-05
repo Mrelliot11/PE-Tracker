@@ -12,5 +12,28 @@
     <button id='<%= r.id %>'
       onClick='javascript:logTask(<%= r.id %>);'><%= r.name %></button>
   <% }); %>
+  <script>
+    let currentTaskId = null;
+
+    const logTask = async function(id) {
+      const response = await fetch('/log', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          users_id: -1,
+          students_id: -1,
+          task_id: id,
+          duration: "'+0:01'"
+        })
+      });
+      
+      const result = await response.json();
+      console.log(result);
+      currentTaskId = id;
+    };
+  </script>
 </body>
 </html>

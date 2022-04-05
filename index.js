@@ -2,7 +2,7 @@
 const express = require('express');
 const req = require('express/lib/request');
 const path = require('path');
-const PORT = process.env.PORT || 5432; 
+const PORT = process.env.PORT || 5000; 
 const { Pool } = require('pg');
 
 
@@ -60,6 +60,34 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
     res.send( error)
   }
 })
+.post('/log', async(req, res) => {
+  try {
+    const client = await pool.connect();
+    const usersId = req.body.users_id;
+    const studentsId = req.body.students_id;
+    const taskId = req.body.task_id;
+    const duration = req.body.duration;
 
+    const sqlInsert = await client.query(
+      `INSERT INTO observations (users_id, students_id, tasks_id, duration)
+      VALUES (${usersId}, ${studentsId}, ${taskId}, ${duration})
+      RETURNING id as new_id;`
+    ); console.log(`Tracking task ${tasksId}`);
+    
+    console.log(sqlInsert);
+
+    const result = {
+      'response': (sqlInsert) ? (sqlInsert.rows[0]) : null
+    };
+    res.set({
+      'Content-Type': 'application/json'
+    });
+    res.json({ requestBody: result });
+    client.release();
+  } catch (err) {
+    console.log(err);
+    res.send("Error" + err);
+  }
+})
 .listen(PORT, () => console.log(`listening on ${ PORT }`))
 

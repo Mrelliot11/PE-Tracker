@@ -27,4 +27,7 @@ duration INTERVAL NOT NULL
 
 CREATE TABLE tasks (
 id SERIAL PRIMARY KEY,
-)
+name TEXT NOT NULL
+);
+
+INSERT INTO tasks (name) VALUES ('Planned Pres.');
