@@ -72,7 +72,7 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
       `INSERT INTO observations (users_id, students_id, tasks_id, duration)
       VALUES (${usersId}, ${studentsId}, ${taskId}, ${duration})
       RETURNING id as new_id;`
-    ); console.log(`Tracking task ${tasksId}`);
+    ); console.log(`Tracking task ${taskId}`);
     
     console.log(sqlInsert);
 
