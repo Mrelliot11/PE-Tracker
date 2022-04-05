@@ -2,7 +2,7 @@
 const express = require('express');
 const req = require('express/lib/request');
 const path = require('path');
-const PORT = process.env.PORT || 5432;
+const PORT = process.env.PORT || 5432;git 
 const { Pool } = require('pg');
 
 
@@ -49,7 +49,7 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
     
   } catch (error) {
     console.error(error);
-    res.send("error: " + error)
+    res.send( error)
   }
 })
 
