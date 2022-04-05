@@ -95,5 +95,5 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
     res.send("Error" + err);
   }
 })
-.listen(PORT, () => console.log(`listening on ${ PORT }`))
+.listen(PORT, () => console.log(`listening on ${ PORT }`));
 
