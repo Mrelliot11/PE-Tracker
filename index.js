@@ -29,7 +29,7 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
 .get('/db-info', async(req,res) => {
   try {
     const client = await pool.connect();
-    const tables = await client.query(
+    const tasks = await client.query(
       `SELECT * FROM tasks ORDER BY id ASC`);
 
     const locals = {
