@@ -48,9 +48,15 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
       ORDER BY c.relname, a.attnum;`
     );
 
+    const obs = await client.query(
+      `SELECT * FROM observations`
+    );
+
     const locals = {
-      'tables': (tables) ? tables.rows : null
+      'tables': (tables) ? tables.rows : null,
+      'obs': (obs) ? obs.rows : null
     };
+    console.log(obs.rows);
 
     res.render('pages/db-info', locals);
     client.release();
