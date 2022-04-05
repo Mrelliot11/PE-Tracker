@@ -17,7 +17,7 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
   
   try {
     const client = await pool.connect();
-gi
+
     const tasks = await client.query(
       `SELECT * FROM tasks ORDER BY id ASC`
     );
