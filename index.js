@@ -28,8 +28,6 @@ gi
     res.render('pages/index', locals);
     client.release();
 
-    client.release();
-    res.send("Works");
     
   } catch (err) {
     console.error(err);
