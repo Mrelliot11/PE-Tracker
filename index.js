@@ -30,12 +30,12 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
   try {
     const client = await pool.connect();
     const tables = await client.query(
-      `SELECT c.relname AS table, a.attname AS column, t.typename AS type
+      `SELECT c.relname AS table, a.attname AS column, t.typname AS type
       FROM pg_catalog.pg_class as c
       LEFT JOIN pg_catalog.pg_attribute as a
-      on c.oid = a.attrelid AND a.attnum > 0
+      ON c.oid = a.attrelid AND a.attnum > 0
       LEFT JOIN pg_catalog.pg_type as t
-      on a.atttypeid = t.oid
+      on a.atttypid = t.oid
       WHERE c.relname in ('users', 'observations', 'students', 'schools', 'tasks')
       ORDER BY c.relname, a.attnum;`
     );
@@ -53,4 +53,5 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
   }
 })
 
-.listen(PORT, () => console.log(`listening on ${ PORT }`));
+.listen(PORT, () => console.log(`listening on ${ PORT }`))
+
