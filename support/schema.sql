@@ -31,3 +31,11 @@ name TEXT NOT NULL
 );
 
 INSERT INTO tasks (name) VALUES ('Planned Pres.');
+INSERT INTO tasks (name) VALUES ('Response Pres.');
+INSERT INTO tasks (name) VALUES ('Monitoring.');
+INSERT INTO tasks (name) VALUES ('Perform Feedbk.');
+INSERT INTO tasks (name) VALUES ('Motiv. FeedBk.');
+INSERT INTO tasks (name) VALUES ('Equip Mgt.');
+INSERT INTO tasks (name) VALUES ('Organization.');
+INSERT INTO tasks (name) VALUES ('Behavior Mgt.');
+INSERT INTO tasks (name) VALUES ('Other Tasks.');
