@@ -1,0 +1,77 @@
+#startDiv {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+
+}
+
+#pauseDiv {
+  position: absolute;
+  top: 70px;
+  left: 125px;
+  
+}
+
+#resetDiv {
+  position: absolute;
+  top: 70px;
+  left: 235px;
+}
+
+#taskButtons {
+  position: absolute;
+  top: 200px;
+  left: 15px;
+
+}
+
+#results {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background-color: aliceblue;
+  font-size: xx-large;
+
+}
+ul {
+  position: fixed;
+  left: 50%;
+  
+
+}
+ul > p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  font-size: large;
+  width: 50px;
+  height: 20px;
+  text-align: center;
+}
+
+#resultsTitles {
+  position: fixed;
+  left: 52%;
+  top: 180px;
+}
+
+#resultsTitles > p {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  font-size: large;
+  width: 50px;
+  height: 20px;
+  text-align: center;
+}
+
+button {
+  border: 1px outset blue;
+  background-color: lightblue;
+  height: 50px;
+  width: 100px;
+  cursor: pointer;
+}
+/* End of css */
