@@ -4,14 +4,66 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href= "/public/assets/styles.css" rel="stylesheet" type="text/css" />
   <title>PE Tracker</title>
 </head>
 <body>
   <h1>PE Tracker</h1>
+
+
+<div id="startDiv">
+  <button id="startButton">Start Tasks</button>
+</div>
+<div id="pauseDiv">
+  <button id="pauseButton">Pause Tasks</button>
+</div>
+<div id="resetDiv">
+  <button id="resetButton">Reset Tasks</button>
+</div>
+
+<div id="resultsTitles">
+  <p>
+    Timer
+  </p>
+  <p>
+    %
+  </p>
+  <p>
+    ID
+  </p>
+</div>
+
+<div id="taskButtons">
   <% tasks.forEach(function(r) {%>
+      <ul>
+        <p id="timer">
+          0
+        </p>
+        <p id="percentage">
+          0
+        </p>
+        <p id='<%= r.id %>'>
+          0
+        </p>
+      </ul>
+
     <button id='<%= r.id %>'
-      onClick='javascript:logTask(<%= r.id %>);'><%= r.name %></button>
+      onClick='javascript:logTask(<%= r.id %>);'><%= r.name %></button><br><br>
+
   <% }); %>
+</div>
+
+
+
+<div id="results">
+ <section>
+   <p>Here is where the results will be:</p>
+ </section>
+ <section>
+
+ </section>
+</div>
+
   <script>
     let currentTaskId = null;
 
@@ -35,5 +87,6 @@
       currentTaskId = id;
     };
   </script>
+
 </body>
 </html>
