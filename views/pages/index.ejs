@@ -11,14 +11,14 @@
   <h1>PE Tracker</h1>
 
 
-<div id="startDiv">
-  <button id="startButton">Start Tasks</button>
+<div id="logDiv">
+  <button id="logButton" onclick="javascript:logTasks();">Log Tasks</button>
 </div>
 <div id="pauseDiv">
-  <button id="pauseButton">Pause Tasks</button>
+  <button id="pauseButton" onclick="javascript:pauseTimers();">Pause Tasks</button>
 </div>
 <div id="resetDiv">
-  <button id="resetButton">Reset Tasks</button>
+  <button id="resetButton" onclick='javascript:resetTimers(startTimer());'>Reset Tasks</button>
 </div>
 
 <div id="resultsTitles">
@@ -35,20 +35,20 @@
 
 <div id="taskButtons">
   <% tasks.forEach(function(r) {%>
-      <ul>
-        <p id="timer">
-          0
-        </p>
-        <p id="percentage">
-          0
-        </p>
-        <p id='<%= r.id %>'>
-          0
-        </p>
-      </ul>
+    <ul>
+      <p class="timer" id='timer <%= r.id %>'>
+        0
+      </p>
+      <p class="percent" id='percentage <%= r.id %>'>
+        0
+      </p>
+      <p id='<%= r.id %>'>
+        <%= r.id %>
+      </p>
+    </ul>
 
-    <button id='<%= r.id %>'
-      onClick='javascript:logTask(<%= r.id %>);'><%= r.name %></button><br><br>
+    <button id='button<%= r.id %>'><%= r.name %></button><br><br>
+      
 
   <% }); %>
 </div>
@@ -59,15 +59,18 @@
  <section>
    <p>Here is where the results will be:</p>
  </section>
+
  <section>
 
  </section>
 </div>
 
   <script>
-    let currentTaskId = null;
+    
+    
 
-    const logTask = async function(id) {
+
+    const logTasks = async function(id) {
       const response = await fetch('/log', {
         method: 'POST',
         headers: {
@@ -78,7 +81,7 @@
           users_id: -1,
           students_id: -1,
           task_id: id,
-          duration: "'+00:00:01'"
+          duration: elapsed
         })
       });
       
@@ -86,6 +89,7 @@
       console.log(result);
       currentTaskId = id;
     };
+    
   </script>
 
 </body>
