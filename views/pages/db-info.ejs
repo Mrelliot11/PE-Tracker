@@ -7,12 +7,6 @@
   <title>DB Info</title>
 </head>
 <body>
-  <h1>Database Tables</h1>
-  <ul>
-    <% tables.forEach(function(r) { %>
-    <li><%= r.table %>: <%= r.column %> (<%= r.type %>)</li>
-    <%}); %>
-  </ul>
   <h1>Observations</h1>
   <ul>
     <% obs.forEach(function(r) { %>
