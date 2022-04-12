@@ -76,7 +76,7 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
 
     const sqlInsert = await client.query(
       `INSERT INTO observations (users_id, students_id, tasks_id, duration)
-      VALUES (${usersId}, ${studentsId}, ${taskId}, make_interval(secs => ${duration}))
+      VALUES (${usersId}, ${studentsId}, ${taskId},  ${duration})
       RETURNING id as new_id;`
     ); console.log(`Tracking task ${taskId}`);
     

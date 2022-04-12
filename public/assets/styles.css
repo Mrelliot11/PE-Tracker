@@ -50,6 +50,17 @@ ul > p {
   text-align: center;
 }
 
+ul > input {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  font-size: large;
+  width: 50px;
+  height: 20px;
+  text-align: center;
+}
+
 #resultsTitles {
   position: fixed;
   left: 52%;

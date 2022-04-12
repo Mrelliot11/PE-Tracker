@@ -22,7 +22,7 @@ id SERIAL PRIMARY KEY,
 users_id INT NOT NULL,
 students_id INT NOT NULL,
 tasks_id INT NOT NULL,
-duration INTERVAL NOT NULL
+duration INTEGER NOT NULL
 );
 
 CREATE TABLE tasks (

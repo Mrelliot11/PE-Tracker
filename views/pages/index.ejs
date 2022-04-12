@@ -18,7 +18,7 @@
   <button id="pauseButton" onclick="javascript:pauseTimers();">Pause Tasks</button>
 </div>
 <div id="resetDiv">
-  <button id="resetButton" onclick='javascript:resetTimers(startTimer());'>Reset Tasks</button>
+  <button id="resetButton" onclick='javascript:resetTimers()'>Reset Tasks</button>
 </div>
 
 <div id="resultsTitles">
@@ -36,9 +36,8 @@
 <div id="taskButtons">
   <% tasks.forEach(function(r) {%>
     <ul>
-      <p class="timer" id='timer <%= r.id %>'>
-        0
-      </p>
+      <input class="timer" id='timer <%= r.id %>' value = 0>
+    </input>
       <p class="percent" id='percentage <%= r.id %>'>
         0
       </p>
@@ -47,7 +46,7 @@
       </p>
     </ul>
 
-    <button id='button<%= r.id %>'><%= r.name %></button><br><br>
+    <button id='button<%= r.id %>' onclick="javascript:logTasks(document.getElementById('timer <%= r.id %>').value, <%= r.id %>)"><%= r.name %></button><br><br>
       
 
   <% }); %>
@@ -70,7 +69,7 @@
     
 
 
-    const logTasks = async function(id) {
+    const logTasks = async function(elapsed, id) {
       const response = await fetch('/log', {
         method: 'POST',
         headers: {
