@@ -26,15 +26,15 @@
 
 <div id="taskButtons">
   <% tasks.forEach(function(r) {%>
-      <input class="timer" id='timer <%= r.id %>' value = 0>
-      <p class="percent" id='percentage <%= r.id %>'>
+      <input class="timer" id='timer<%= r.id %>' value = 0>
+      <p class="percent" id='percentage<%= r.id %>'>
         0
       </p>
       <p id='<%= r.id %>'>
         <%= r.id %>
       </p>
 
-    <button id='button<%= r.id %>' onclick="javascript:logTasks(document.getElementById('timer <%= r.id %>').value, <%= r.id %>)"><%= r.name %></button><br><br>
+    <button id='button<%= r.id %>' onclick="javascript:logTasks(document.getElementById('timer<%= r.id %>').value, <%= r.id %>)"><%= r.name %></button><br><br>
       
 
   <% }); %>
