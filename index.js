@@ -63,7 +63,7 @@ express().use(express.static(path.join(__dirname, 'public'))).use(express.json()
     
   } catch (error) {
     console.error(error);
-    res.send( error)
+    res.send(error);
   }
 })
 .post('/log', async(req, res) => {
